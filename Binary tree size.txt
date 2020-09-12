@@ -1,0 +1,13 @@
+class Tree
+{
+	public static int getSize(Node root)
+	{
+	    if(root==null){
+	        return 0;
+	    }
+     int ls=getSize(root.left);
+     int rs=getSize(root.right);
+     int ts=ls+rs+1;
+     return ts;
+    }
+}

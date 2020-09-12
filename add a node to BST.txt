@@ -1,0 +1,24 @@
+class Solution{
+    
+    // The function returns the root of the BST (currently rooted at 'root') 
+    // after inserting a new Node with value 'Key' into it. 
+    Node insert(Node root, int key)
+    {
+     if(root==null)
+     {
+      return new Node(key);   
+     }
+     if(key>root.data)
+     {
+     root.right=insert(root.right,key);
+     }
+      else if(key<root.data)
+     {
+     root.left=insert(root.left,key);
+     }
+     else{
+         
+}
+  return root;
+    }
+}

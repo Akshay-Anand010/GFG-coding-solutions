@@ -1,0 +1,12 @@
+class BinaryTree
+{
+    static int sumBT(Node head){
+       if(head==null){
+           return 0;
+       }
+       int ls=sumBT(head.left);
+       int rs=sumBT(head.right);
+       int sum=ls+rs+head.data;
+       return sum;
+    }
+}

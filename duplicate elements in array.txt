@@ -1,0 +1,31 @@
+import collections
+
+def printDuplicates(arr, n):
+    freq={}
+    l=[]
+    for i in arr:
+        freq[i]=arr.count(i)
+    for k,v in freq.items():
+        if(v>1):
+            l.append(k)
+    l.sort()
+    if(len(l)==0):
+        print("-1",end='')
+    else:
+        for i in range(len(l)):
+            print(l[i],end=' ')
+    
+
+
+
+
+#{ 
+#  Driver Code Starts
+  
+if(__name__=='__main__'):
+    t = int(input())
+    for i in range(t):
+        n = int(input())
+        arr = list(map(int, input().strip().split()))
+        printDuplicates(arr, n)
+        print('')

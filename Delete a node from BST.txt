@@ -1,0 +1,45 @@
+class Tree
+{
+    public static int max(Node node){
+        if(node.right!=null){
+            return max(node.right);
+        }
+        else{
+            return node.data;
+        }
+    }
+    // Return the root of the modified BST after deleting the node with value X
+	public static Node deleteNode(Node root, int X)
+	{
+	if(root==null)
+	{
+	    return null;
+	}
+	if(X>root.data)
+	{
+	    root.right=deleteNode(root.right,X);
+	}
+		else if(X<root.data)
+	{
+	    root.left=deleteNode(root.left,X);
+	}
+	else{
+	    if(root.left!=null && root.right!=null){
+	       int lmax=max(root.left); 
+	       root.data=lmax;
+	       root.left=deleteNode(root.left,lmax);
+	       return root;
+	    }
+	    else if(root.left!=null){
+	        return root.left;
+	    }
+	    else if(root.right!=null){
+	       return root.right; 
+	    }
+	    else{
+	        return null;
+	    }
+	}
+	return root;
+	}
+}	

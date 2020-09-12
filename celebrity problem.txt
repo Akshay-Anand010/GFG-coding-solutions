@@ -1,0 +1,30 @@
+class Celebrity
+{
+    // The task is to complete this function
+    int getId(int M[][], int n)
+    {
+      Stack<Integer> st=new Stack<Integer>();
+      for(int i=0;i<n;i++){
+          st.push(i);
+      }
+      while(st.size()>=2){
+          int i=st.pop();
+          int j=st.pop();
+          if(M[i][j]==1){
+              st.push(j);
+          }else{
+             st.push(i); 
+          }
+      }
+      int pot=st.pop();
+      for(int i=0;i<n;i++){
+          if(i!=pot){
+              if(M[i][pot]==0|| M[pot][i]==1){
+                  return -1;
+                  
+              }
+          }
+      }
+      return pot;
+    }
+}

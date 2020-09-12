@@ -1,0 +1,15 @@
+Node reverseList(Node head)
+   {
+       Node prev=null;
+       Node curr=head;
+       Node nex=null;
+       while(curr!=null)
+       {
+          nex = curr.next;
+          curr.next = prev;
+          prev = curr;
+           curr = nex;
+           
+       }
+    return prev;
+   }

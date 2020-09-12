@@ -1,0 +1,14 @@
+def maxSubArraySum(array):
+	l=[]
+	mf=0
+	me=0
+	for i in range(len(array)):
+	    me=me+array[i]
+	    if(me<0):
+	        me=0
+	    if(mf<me):
+	        mf=me
+	if(mf==0):
+	    return max(array)
+	else:
+	    return mf

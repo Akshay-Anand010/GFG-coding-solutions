@@ -1,0 +1,20 @@
+def sm(a,b):
+    if(len(a)==0 and len(b)==0):
+        return True
+    if(len(a)==0):
+        return False
+    if(len(b)!=0 and a[0]!=b[0]):
+        return sm(a[1:],b)
+    elif(len(b)!=0 and a[0]==b[0]):
+        return sm(a[1:],b[1:])
+    if(len(b)==0):
+        return True
+    else:
+        return False
+        
+  
+def isInterleave(A, B, C):
+    if(sm(C,B) and sm(C,A)):
+        return True
+    else:
+        return False

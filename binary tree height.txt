@@ -1,0 +1,21 @@
+class Tree
+{
+    // return the Height of the given Binary Tree
+    int height(Node root) 
+    {
+      if(root==null)
+      return 0;
+      else
+      {
+      int ld=height(root.left);
+      int rd=height(root.right);
+      
+      
+      if(ld>rd)
+      return ld+1;
+      else
+      return rd+1;
+      }
+    
+    }   
+}

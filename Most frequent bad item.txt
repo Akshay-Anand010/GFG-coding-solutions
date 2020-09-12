@@ -1,0 +1,21 @@
+def MostFrequent(paragraph,bad_words):
+    freq={}
+    l=[]
+    for i in paragraph.split():
+        for j in bad_words:
+            if(i!=j.casefold()):
+                freq[i]=paragraph.count(i)
+    for k,v in freq.items():
+        l.append(v)
+    filtered = {k: v for k, v in freq.items() if k!="None"}
+    freq.clear()
+    freq.update(filtered)
+    l.sort()
+    for k,v in freq.items():
+        if(v==l[len(l)-1]):
+            p=k
+            if("None" in p):
+                print(p.replace("None",''),end='')
+            else:
+            print(p,end='')
+            break

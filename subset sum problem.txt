@@ -1,0 +1,39 @@
+class Solution {
+    public boolean findPartition(int[] a, int n) {
+       
+       int sum=0;
+       for(int i=0;i<n;i++)
+       {
+         sum+=a[i];  
+       }
+       if(sum%2==0)
+       {
+        int sum1=sum/2;
+        boolean res[][]=new boolean[n+1][sum1+1];
+        for(int i=1;i<=n;i++)
+        res[0][i]=false;
+        for(int i=0;i<=n;i++)
+        res[i][0]=true;
+        for(int i=1;i<=n;i++)
+        {
+        for(int j=1;j<=sum1;j++)
+        {
+         
+         if(a[i-1]<=j)
+         {
+        res[i][j]=(res[i][j-a[i-1]])||(res[i-1][j]);
+         }
+         else{
+             res[i][j]=res[i-1][j];
+         }
+        }
+       }
+            return res[n][sum1];
+       }
+      
+       else
+       {
+         return false;  
+       }
+    }
+}

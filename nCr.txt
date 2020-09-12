@@ -1,0 +1,27 @@
+class DynamicProgramming{
+    
+    // function to find nC
+    public static int nCrModp(int n, int r){
+    int M=1000000007;
+    int ncr[][]=new int[n+1][r+1];
+       if(r>n)
+       return 0;
+       else{
+      for(int i=0;i<=n;i++)
+      {
+      for(int j=0;j<=r;j++)
+      {
+       if(i==0 || j==0 || i==j)
+         ncr[i][j]=1;
+       
+         else{
+         ncr[i][j]=(ncr[i-1][j-1]%M+ncr[i-1][j]%M)%M; 
+         }
+      }
+      }
+      
+    }
+    int p= ncr[n][r];
+    return  p;  
+    }
+}

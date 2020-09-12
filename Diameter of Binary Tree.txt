@@ -1,0 +1,33 @@
+class Tree {
+     int height(Node root) 
+    {
+      if(root==null)
+      return 0;
+      else
+      {
+      int ld=height(root.left);
+      int rd=height(root.right);
+      
+      
+      if(ld>rd)
+      return ld+1;
+      else
+      return rd+1;
+      }
+    }
+    /* Complete the function to get diameter of a binary tree */
+    int diameter(Node root) {
+        // Your code here
+    if(root==null){
+        return 0;
+    }
+    
+    int ld=diameter(root.left);
+    int rd=diameter(root.right);
+    
+    int f=height(root.left)+height(root.right)+1;
+    
+    return Math.max(f,Math.max(ld,rd));
+    
+    }
+}
